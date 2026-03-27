@@ -30,6 +30,12 @@ The **Token Bucket** algorithm is a popular rate limiting strategy that allows b
 - Tokens are refilled at a fixed rate over time.  
 - If the bucket is empty, requests are rejected until tokens refill.
 
+## Trade-offs:
+
+✅ Allows bursts smoothly
+✅ Handles sustained traffic efficiently
+❌ Slight memory overhead for tracking tokens and last refill
+
 **Parameters:**
 - `burst`: Maximum number of requests allowed in a short period (bucket capacity)  
 - `sustained`: Rate at which tokens are added to the bucket (per minute)  
@@ -44,8 +50,36 @@ console.log(bucket.allowRequest()); // true
 console.log(bucket.allowRequest()); // true
 console.log(bucket.allowRequest()); // true
 
+
+
+----------------------------------------------------------------------------------------------------
+## Sliding Window
+
+The **Sliding Window** algorithm is a rate limiting strategy that counts requests in a moving time window, providing more accurate control than Fixed Window.
+
+**How it works:**
+- Each request timestamp is recorded per client.  
+- Old timestamps outside the window are removed automatically.  
+- Requests are allowed if the number of timestamps within the window is below the limit.  
+- Requests exceeding the limit are rejected until timestamps slide out of the window.
+
 ## Trade-offs:
 
-✅ Allows bursts smoothly
-✅ Handles sustained traffic efficiently
-❌ Slight memory overhead for tracking tokens and last refill
+✅ Accurate for high-frequency requests
+✅ Prevents bursts at window edges
+❌ Uses more memory than Fixed Window (stores timestamps)
+
+**Parameters:**
+- `limit`: Maximum number of requests allowed in the time window  
+- `windowMs`: Size of the sliding window in milliseconds  
+
+**Example Usage:**
+```js
+const SlidingWindowLimiter = require('./slidingWindow');
+
+const limiter = new SlidingWindowLimiter(3, 1000); // 3 requests per 1 second
+
+console.log(limiter.allowRequest('user1')); // true
+console.log(limiter.allowRequest('user1')); // true
+console.log(limiter.allowRequest('user1')); // true
+console.log(limiter.allowRequest('user1')); // false (limit reached)
