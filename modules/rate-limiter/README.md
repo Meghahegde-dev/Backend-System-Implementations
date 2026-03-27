@@ -115,3 +115,23 @@ The **Sliding Window Log**  provides 100% accuracy by tracking every single requ
 * **Leaky Bucket** is perfect for background jobs or message processing where the target system can only handle a specific, unchangeable rate (e.g., 5 jobs per second).
 
 * **Sliding Window Log** only when 100% precision is required and you have a small enough limit that memory won't be an issue.
+
+## 🚀 Production Considerations
+
+### 1. Distributed Rate Limiting
+In a microservices architecture, in-memory rate limiting is insufficient. For a production-grade system, these algorithms should be implemented using a centralized store like **Redis** to ensure limits are enforced across all cluster nodes.
+
+### 2. Handling Race Conditions
+When using a distributed store, multiple concurrent requests can lead to "check-then-set" race conditions. 
+- **Solution:** Use **Lua Scripts** in Redis to ensure that the logic for checking the limit and incrementing the counter happens atomically.
+
+### 3. Performance vs. Memory
+- **Sliding Window Log:** Provides 100% accuracy but has $O(N)$ space complexity. It is unsuitable for high-limit scenarios (e.g., 100k requests/min) due to memory overhead.
+- **Sliding Window Counter:** Offers $O(1)$ space complexity and is the preferred choice for high-scale systems where a small estimation error (weighted average) is acceptable.
+
+### 4. Client Communication
+Always return standard HTTP headers to help clients handle rate limits gracefully:
+- `X-RateLimit-Limit`: The rate limit ceiling.
+- `X-RateLimit-Remaining`: The number of requests left in the current window.
+- `X-RateLimit-Reset`: The time at which the limit resets.
+- **HTTP 429 Too Many Requests**: The correct status code to return when the limit is exceeded.
