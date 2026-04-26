@@ -4,9 +4,9 @@ This repository is a collection of backend system modules I’m building to lear
 
 The focus is not on production-ready systems, but on:
 
-breaking down how things work internally
-experimenting with different approaches
-building intuition through hands-on implementation
+- breaking down how things work internally.
+- experimenting with different approaches.
+- building intuition through hands-on implementation.
 
 Each module is kept simple, modular, and easy to reason about.
 
