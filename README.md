@@ -49,16 +49,16 @@ Each module will focus on **clean architecture, modularity, and maintainable des
 ```bash
 backend-system-implementations/
 │
-├── rate-limiter/        # In progress, modular design
-├── cache/               # Planned, future implementation
-├── job-queue/           # Planned
-├── rest-api/            # Planned
-├── auth/                # Planned
-├── file-upload/         # Planned
-├── search/              # Planned
-├── pub-sub/             # Planned
-├── logger/              # Planned
-├── api-gateway/         # Planned
+├── rate-limiter/        
+├── cache/               
+├── job-queue/           
+├── rest-api/          
+├── auth/                
+├── file-upload/         
+├── search/           
+├── pub-sub/             
+├── logger/             
+├── api-gateway/        
 │
 └── README.md
 ```
