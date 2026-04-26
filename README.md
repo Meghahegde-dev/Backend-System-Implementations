@@ -11,8 +11,8 @@ The goal is to design each module as a **self-contained, production-ready compon
 ## 📌 Current Status
 
 - ✅ **Rate Limiter**.
-- ✅**Caching System **.
-- ✅**Basic Crud operations with TTL**.
+- ✅ **Caching System**.
+- ✅ **Basic Crud operations with TTL**.
 - ⏳ **Other modules** — Planned and structured for phased implementation.
 
 ---
