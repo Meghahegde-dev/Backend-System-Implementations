@@ -12,8 +12,9 @@ The goal is to design each module as a **self-contained, production-ready compon
 
 - ✅ **Rate Limiter**.
 - ✅ **Caching System**.
-- ✅ **Basic Crud operations with TTL**.
+- ✅ ** REST API System  - Basic Crud operations with TTL**.
 - ✅ **API Gateway - Refer to microservice boilerplate repo**
+- ✅ Logging System(Winston, Grafana, prometheus) - Refer to microservice boilerplate repo**
 - ⏳ **Other modules** — Planned and structured for phased implementation**.
 
 ---
