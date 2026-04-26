@@ -10,7 +10,9 @@ The goal is to design each module as a **self-contained, production-ready compon
 
 ## 📌 Current Status
 
-- ✅ **Rate Limiter** — Added and actively in progress, designed for flexibility and different limiting strategies.  
+- ✅ **Rate Limiter**.
+- ✅**Caching System **.
+- ✅**Basic Crud operations with TTL**.
 - ⏳ **Other modules** — Planned and structured for phased implementation.
 
 ---
