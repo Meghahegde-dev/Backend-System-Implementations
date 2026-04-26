@@ -1,6 +1,6 @@
 # 🚀 Backend System Implementations
 
-This repository is a collection of backend system modules I’m building to learn and understand core backend concepts.
+This repository is a collection of backend system modules, built to develop a strong, practical understanding of core backend engineering concepts.
 
 The focus is not on production-ready systems, but on:
 
@@ -20,7 +20,7 @@ Each module is kept simple, modular, and easy to reason about.
 - ✅ **Caching System**.
 - ✅ **REST API System  - Basic Crud operations with TTL**.
 - ✅ **API Gateway - Refer to microservice boilerplate repo**
-- ✅ Logging System(Winston, Grafana, prometheus) - Refer to microservice boilerplate repo**
+- ✅ **Logging System(Winston, Grafana, prometheus) - Refer to microservice boilerplate repo**
 - ⏳ **Other modules** — Planned and structured for phased implementation**.
 
 ---
