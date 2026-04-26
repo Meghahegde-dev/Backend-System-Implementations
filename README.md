@@ -1,8 +1,14 @@
 # 🚀 Backend System Implementations
 
-This repository is a hands-on collection of backend system modules I am architecting and implementing to deepen my understanding of scalable and maintainable backend systems.  
+This repository is a collection of backend system modules I’m building to learn and understand core backend concepts.
 
-The goal is to design each module as a **self-contained, production-ready component**, with clear architecture, modular design, and the ability to extend and integrate with other systems.
+The focus is not on production-ready systems, but on:
+
+breaking down how things work internally
+experimenting with different approaches
+building intuition through hands-on implementation
+
+Each module is kept simple, modular, and easy to reason about.
 
 > Each module will have its own `README.md` detailing design decisions, implementation notes, and usage examples.
 
